@@ -229,11 +229,11 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 90dvh;
+    height: 100dvh;
   }
 
   .hero-overlay {
-    height: 90dvh;
+    height: 100dvh;
   }
 
   .hero h1 {
