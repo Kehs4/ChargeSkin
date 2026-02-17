@@ -1,22 +1,55 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import './index.css';
 import './App.css';
 
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ProductsPage from './ProductsPage';
+import HomePage from './HomePage';
+import Cart from '../components/Cart';
+import { useCart } from '../contexts/CartContext';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { toggleCart, cartItems } = useCart();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    document.title = 'ChargeSkin | Home';
-  }, []);
+  // Função para navegar para âncoras na página inicial
+  const handleHashLink = (hash: string) => {
+    setIsMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
+  useEffect(() => {
+    document.title = location.pathname === '/produtos' ? 'ChargeSkin | Produtos' : 'ChargeSkin | Home';
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
 
   return (
@@ -27,80 +60,30 @@ function App() {
         <div className="container">
           <div className="logo"><ElectricBoltIcon fontSize='small' className='lightning' /> ChargeSkin</div>
           <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-            <a href="#home" onClick={toggleMenu}>Início</a>
-            <a href="#products" onClick={toggleMenu}>Produtos</a>
-            <a href="#about" onClick={toggleMenu}>Sobre</a>
-            <a href="#contact" onClick={toggleMenu}>Contato</a>
+            <Link to="/" onClick={toggleMenu}>Início</Link>
+            <Link to="/produtos" onClick={toggleMenu}>Produtos</Link>
+            <a href="#about" onClick={(e) => { e.preventDefault(); handleHashLink('about'); }}>Sobre</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); handleHashLink('contact'); }}>Contato</a>
           </nav>
-          <div className="menu-toggle" onClick={toggleMenu}>
-            ☰
+          <div className="header-right">
+            <button onClick={toggleCart} className="cart-toggle-button">
+              <ShoppingCartIcon />
+              {cartItems.length > 0 && <span className="cart-badge">{cartItems.reduce((acc, item) => acc + (item.quantity || 0), 0)}</span>}
+            </button>
+            <div className="menu-toggle" onClick={toggleMenu}>
+              ☰
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Section Inicial */}
-      <section id="home" className="hero">
-        <div className="hero-overlay"></div>
-        <div className="container hero-content">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h1> <ElectricBoltIcon className='lightning-about' style={{ width: '50px', height: '40px' }} /> ChargeSkin</h1>
-          </div>
-          <p className='chargeskin-about'>Soluções inteligentes, modernas e práticas para o dia a dia.
-            <br></br> <br></br>
-            Praticidade, mobilidade e liberdade através da tecnologia.</p>
-          <button className="cta-button">Ver Produtos</button>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features">
-        <div className="container">
-          <div className="feature-card">
-            <h3>Qualidade</h3>
-            <p>Materiais selecionados para garantir durabilidade e brilho.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Design</h3>
-            <p>Peças únicas que seguem as últimas tendências da moda.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Entrega Rápida</h3>
-            <p>Receba seus produtos com agilidade e segurança.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Preview */}
-      <section id="products" className="products">
-        <div className="container">
-          <h2>Categorias em Destaque</h2>
-          <div className="product-grid">
-            <div className="product-item">
-              <div className="product-placeholder"></div>
-            </div>
-            <div className="product-item">
-              <div className="product-placeholder"></div>
-            </div>
-            <div className="product-item">
-              <div className="product-placeholder"></div>
-            </div>
-            <div className="product-item">
-              <div className="product-placeholder"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="about">
-        <div className="container">
-          <h2>Sobre Nós</h2>
-          <p>
-            Somos uma empresa dedicada a trazer o que há de melhor no mundo dos (produtos).
-            Acreditamos que um pequeno detalhe pode transformar completamente o seu visual e elevar sua autoestima.
-          </p>
-        </div>
-      </section>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/produtos" element={<ProductsPage />} />
+        </Routes>
+        <Cart />
+      </main>
 
       {/* Footer */}
       <footer id="contact" className="footer">

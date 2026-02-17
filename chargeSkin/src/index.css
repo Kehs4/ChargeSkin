@@ -3,7 +3,7 @@
 :root {
   --primary-color: #245fff; /* Gold */
   --secondary-color: #222;   /* Dark Gray/Black */
-  --text-color: #444;
+  --text-color: #727272;
   --bg-color: #f9f9f9;
   --white: #ffffff;
   --text-hover: #ffd000;
@@ -30,7 +30,7 @@
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0px 45px 80px 30px rgb(0, 0, 0);
+  box-shadow: 0px 10px 100px 5px rgb(0, 0, 0);
 }
 
 .header .container {
