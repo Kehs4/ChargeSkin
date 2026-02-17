@@ -584,15 +584,14 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 120dvh;
+    height: 90dvh;
   }
 
   .hero-overlay {
-    height: 120dvh;
+    height: 90dvh;
   }
 
   .hero h1 {
-    margin-top: 150px;
     font-size: 3rem;
   }
 
