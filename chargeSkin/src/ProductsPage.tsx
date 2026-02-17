@@ -14,14 +14,14 @@ interface Product {
 
 // Dados simulados de produtos (Mock)
 const PRODUCTS_DATA: Product[] = [
-  { id: 1, name: 'Capa Slim Crystal', category: 'Capas', price: 49.90, image: '/public/phoneCape2.jpeg', description: 'Proteção ultrafina e transparente que não esconde o design do seu celular.', colors: ['Transparent', 'Black', 'Blue'] },
-  { id: 2, name: 'Capa Charge MagSafe', category: 'Carregadores', price: 89.90, image: '/public/phonecape.jpeg', description: 'Carregue seu celular com a máxima praticidade da tecnologia MagSafe.', colors: ['White', 'Black'] },
-  { id: 3, name: 'Película de Vidro 3D', category: 'Proteção', price: 29.90, image: '/public/CapaCharge.jpeg', description: 'Cobertura completa da tela com bordas arredondadas para uma proteção impecável.', colors: ['Padrão'] },
-  { id: 4, name: 'Carregador Portátil ChargeSkin', category: 'Cabos', price: 39.90, image: '/public/phoneCharging3.jpeg', description: 'Cabo resistente e estiloso para carregar seus dispositivos com velocidade.', colors: ['Silver', 'Gold', 'Gray'] },
+  { id: 1, name: 'Capa Slim Crystal', category: 'Capas', price: 49.90, image: '/phoneCape2.jpeg', description: 'Proteção ultrafina e transparente que não esconde o design do seu celular.', colors: ['Transparent', 'Black', 'Blue'] },
+  { id: 2, name: 'Capa Charge MagSafe', category: 'Carregadores', price: 89.90, image: '/phonecape.jpeg', description: 'Carregue seu celular com a máxima praticidade da tecnologia MagSafe.', colors: ['White', 'Black'] },
+  { id: 3, name: 'Película de Vidro 3D', category: 'Proteção', price: 29.90, image: '/CapaCharge.jpeg', description: 'Cobertura completa da tela com bordas arredondadas para uma proteção impecável.', colors: ['Padrão'] },
+  { id: 4, name: 'Carregador Portátil ChargeSkin', category: 'Cabos', price: 39.90, image: '/phoneCharging3.jpeg', description: 'Cabo resistente e estiloso para carregar seus dispositivos com velocidade.', colors: ['Silver', 'Gold', 'Gray'] },
   { id: 5, name: 'Capa de Couro Premium', category: 'Capas', price: 129.90, image: 'https://via.placeholder.com/300x300/e0e0e0/333?text=Capa+Couro', description: 'Elegância e proteção com couro legítimo de alta qualidade.', colors: ['Brown', 'Black'] },
   { id: 6, name: 'Power Bank 10000mAh', category: 'Carregadores', price: 159.90, image: 'https://via.placeholder.com/300x300/e0e0e0/333?text=Power+Bank', description: 'Bateria de alta capacidade para manter seus dispositivos sempre carregados.', colors: ['Black', 'White'] },
   { id: 7, name: 'Suporte Veicular MagSafe', category: 'Acessórios', price: 79.90, image: 'https://via.placeholder.com/300x300/e0e0e0/333?text=Suporte', description: 'Fixe seu celular no carro de forma segura e prática com a tecnologia MagSafe.', colors: ['Black'] },
-  { id: 8, name: 'Fone Bluetooth Pro', category: 'Áudio', price: 299.90, image: '/public/bluetoothHeadPhone.jpeg', description: 'Qualidade de som superior e cancelamento de ruído para uma imersão total.', colors: ['White', 'Space Gray'] },
+  { id: 8, name: 'Fone Bluetooth Pro', category: 'Áudio', price: 299.90, image: '/bluetoothHeadPhone.jpeg', description: 'Qualidade de som superior e cancelamento de ruído para uma imersão total.', colors: ['White', 'Space Gray'] },
   { id: 9, name: 'Kit Limpeza de Tela', category: 'Acessórios', price: 19.90, image: 'https://via.placeholder.com/300x300/e0e0e0/333?text=Kit+Limpeza', description: 'Mantenha suas telas sempre limpas e livres de marcas de dedo.', colors: ['Padrão'] },
   { id: 10, name: 'Capa Anti-Impacto', category: 'Capas', price: 69.90, image: 'https://via.placeholder.com/300x300/e0e0e0/333?text=Capa+Impacto', description: 'Proteção robusta contra quedas e impactos para o seu dia a dia.', colors: ['Black', 'Red', 'Green'] },
 ];

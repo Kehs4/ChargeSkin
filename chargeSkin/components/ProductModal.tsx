@@ -23,9 +23,9 @@ const paymentMethods: string[] = [
 ];
 
 const paymentIcons: { [key: string]: JSX.Element | string } = {
-    'Visa': '/public/visa.png',
+    'Visa': '/visa.png',
     'Mastercard': 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg',
-    'Elo': '/public/elo-seeklogo.png',
+    'Elo': '/elo-seeklogo.png',
     'Pix': <PixIcon style={{color: '#32CFC5'}} />,
     'Boleto': <ReceiptLongIcon style={{ color: '#9c423f'}} />
 };
